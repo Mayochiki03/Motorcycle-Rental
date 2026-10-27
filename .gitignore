@@ -1,0 +1,15 @@
+# ค่าตั้งค่าและรหัสลับ ห้าม commit
+.env
+
+# ไฟล์ที่ระบบสร้างระหว่างทำงาน
+storage/logs/*
+storage/ratelimit/*
+!storage/logs/.gitkeep
+!storage/ratelimit/.gitkeep
+
+# ของเครื่องมือ / ระบบปฏิบัติการ
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log

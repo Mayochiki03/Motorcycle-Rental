@@ -1,0 +1,14 @@
+# ใช้เมื่อชี้ DocumentRoot มาที่โฟลเดอร์โปรเจค (เช่น วางใน htdocs ของ XAMPP โดยไม่ได้ตั้ง vhost)
+# ส่งทุกคำขอไปที่โฟลเดอร์ public/ เพื่อให้เข้าถึง .env, src/, views/, storage/ ไม่ได้
+# แนะนำกว่า: ตั้ง DocumentRoot ให้ชี้ไปที่ public/ โดยตรง (ดู README)
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^$ public/ [L]
+    RewriteRule ^((?!public/).*)$ public/$1 [L]
+</IfModule>
+
+# กันไว้อีกชั้น: ห้ามเปิดไฟล์ที่ขึ้นต้นด้วยจุด และไฟล์ตั้งค่า/ฐานข้อมูลโดยตรง
+<FilesMatch "^\.|\.(env|sql|md|log|json|lock)$">
+    Require all denied
+</FilesMatch>

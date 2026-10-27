@@ -1,0 +1,7 @@
+# ตั้งค่าสำหรับ Apache (ถ้าใช้ nginx ดูตัวอย่างใน README)
+Options -Indexes
+
+# ห้ามเปิดไฟล์ที่ขึ้นต้นด้วยจุด
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
